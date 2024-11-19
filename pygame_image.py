@@ -27,11 +27,13 @@ def main():
         if key_lst[pg.K_DOWN]:  # 下矢印キーが押されたら
             kk_rct.move_ip(0, +1)
         if key_lst[pg.K_LEFT]:  # 左矢印キーが押されたら
-            kk_rct.move_ip(-1, 0)
+            kk_rct.move_ip(-2, 0)
         if key_lst[pg.K_RIGHT]:  # 右矢印キーが押されたら
-            kk_rct.move_ip(+1, 0)
-        
+            kk_rct.move_ip(+2, 0)
         x = -(tmr%3200)
+        if not key_lst[pg.K_LEFT]:
+            kk_rct.move_ip(-1, 0)
+
         screen.blit(bg_img, [x, 0]) #screen Surfaceに背景画像Surfaceを貼り付ける
         screen.blit(bg_img2,[x+1600,0])
         screen.blit(bg_img, [x+3200, 0]) #screen Surfaceに背景画像Surfaceを貼り付ける
