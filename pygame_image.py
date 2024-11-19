@@ -21,19 +21,21 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         key_lst = pg.key.get_pressed()
+        i = 0
+        j = 0         
         #print(key_lst[pg.K_UP],key_lst[pg.K_DOWN],key_lst[pg.K_LEFT],key_lst[pg.K_RIGHT])
         if key_lst[pg.K_UP]:  # 上矢印キーが押されたら
-            kk_rct.move_ip(0, -1)
+            j -= 1
         if key_lst[pg.K_DOWN]:  # 下矢印キーが押されたら
-            kk_rct.move_ip(0, +1)
+            j += 1
         if key_lst[pg.K_LEFT]:  # 左矢印キーが押されたら
-            kk_rct.move_ip(-2, 0)
+            i -= 2
         if key_lst[pg.K_RIGHT]:  # 右矢印キーが押されたら
-            kk_rct.move_ip(+2, 0)
+            i += 2
         x = -(tmr%3200)
         if not key_lst[pg.K_LEFT]:
-            kk_rct.move_ip(-1, 0)
-
+            i -= 1
+        kk_rct.move_ip(i, j)
         screen.blit(bg_img, [x, 0]) #screen Surfaceに背景画像Surfaceを貼り付ける
         screen.blit(bg_img2,[x+1600,0])
         screen.blit(bg_img, [x+3200, 0]) #screen Surfaceに背景画像Surfaceを貼り付ける
